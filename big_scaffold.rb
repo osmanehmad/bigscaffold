@@ -7,7 +7,7 @@ require 'json'
 
 json = File.read('scaffold.json')
 scaf = JSON.parse(json)
-fields =  scaf['property'].keys
+fields =  scaf['json'].keys
 puts "rails g scaffold property " + fields.join(':text ').to_s+":text"
 
 # following code will read everything from json fixture which contains _image in it, i.e image fields
@@ -31,8 +31,8 @@ fields.each do |field|
 
 end
 
-local =  '/home/osman/paperclipdemo/config/rackspace_cloudfiles.yml'
-production =  '/home/irl/railsapps/paperclipdemo/config/rackspace_cloudfiles.yml'
+local =  '/home/osman/bigscaffold/config/rackspace_cloudfiles.yml'
+production =  '/home/osman/railsapps/bigscaffold/paperclipdemo/config/rackspace_cloudfiles.yml'
 
 image_field_name = "placeholder"
 fixture = "has_attached_file :"+image_field_name+",:styles => {  :thumb => '300x300>' },:storage =>:cloud_files,:cloudfiles_credentials => '/home/osman/paperclipdemo/config/rackspace_cloudfiles.yml'"
